@@ -17,11 +17,20 @@ $vall = $rer[0];
 if (isset($_POST["editar"])){
   $data->setNombre($_POST["nombre"]);
   $data->setDescripcion($_POST["descripcion"]);
-  $data->setImagen($_POST["imagen"]);
+  if (!empty($_FILES['imagen']['tmp_name'])) {
+    $imagen = $_FILES['imagen']['name'];
+    $imagen_temporal = $_FILES['imagen']['tmp_name'];
+    move_uploaded_file($imagen_temporal, "img/$imagen");
+    $data->setImagen($imagen);
+  } else {
+    $data->setImagen($vall['imagen']);
+  }
 
   $data-> update();
   echo "<script>alert('Factura actualizada satisfactoriamente'); document.location='facturacion.php'</script>";
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +78,7 @@ if (isset($_POST["editar"])){
               </div>
               <div class="mb-1 col-12">
                 <label for="imagen">Imagen</label>
-                  <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Predeterminada..." value ="<?php echo $vall['imagen'];?>">
+                  <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Predeterminada..." value="<?php echo $vall['imagen'];?>"><img src ="img/<?php echo $vall['imagen'];?>" name="imagen" id="imagen" style="width: 100px; border-radius: 1rem;">
                 </div>
                  <div class=" col-12 m-2">
                 <input type="submit" class="btn btn-primary" value="UPDATE" name="editar"/>
