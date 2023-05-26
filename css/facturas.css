@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.boxes {
+    display: flex;
+}
+
+.izquierda {
+    padding: 3rem;
+    text-align: center;
+    background: rgba(80, 155, 80, 0.445);
+    height: 100vh;
+    color: rgb(1, 75, 1);
+    width: 32vw;
+}
+
+.container {
+    background: rgba(180, 238, 180, 0.61);
+    background-image: url("https://img.freepik.com/foto-gratis/habitacion-vacia-fondo-estudio-abstracto-degradado-verde-liso-lujo-espacio-texto-e-imagen_1258-63953.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;   
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.botoncito {
+    width: 30%;
+}
+
+.foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgb(20, 61, 20);
+    height: 100%;
+    color: rgb(111, 197, 111);
+    padding-top: 1.3rem;
+}
